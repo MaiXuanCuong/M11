@@ -7,17 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <p id="test"></p>
-    <!-- <ol type="A"start="3">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-</ol> -->
-
-
+    <canvas id="myCanvas" width="500" height="500"></canvas>
     <script>
-    //   document.getElementById("test").innerHTML= <h1>123</h1>
-document.getElementById("test").innerText= <h1>12feaw3</h1>
+      class Rectangle{
+        constructor(x, y, width, height, color){
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.color = color;
+        }
+        render(){
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+      }
+  var hcn = new Rectangle(10,10,70,50,'#ff0000')
+  hcn.render();
     </script>
 </body>
 </html>
