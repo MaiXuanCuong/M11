@@ -1,0 +1,617 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sản Phẩm</title>
+</head>
+<body>
+    <style>
+          body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color:  rgb(78, 68, 68);
+    }
+    
+    .topnav a {
+      background-color: rgb(78, 68, 68);
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover, #csmota:hover,
+        #cst:hover,
+        #csmt:hover, #addd:hover,
+        #timkiem1:hover,
+        #hienthi:hover,
+        #reset1:hover,
+        #delete1:hover{
+      background-color: rgb(204, 150, 255);
+      color: rgb(255, 0, 0);
+    }
+    .topnav-right {
+      float: right;
+    }
+    
+        html {
+          background-color: #b7f5f5;
+          background-size: cover;
+        }
+        div {
+          text-align: center;
+        }
+        h2 {
+          text-align: center;
+          color: rgb(9, 9, 9);
+        }
+        #newProduct,
+        #motasp,
+        #timkiem {
+          background-color: black;
+          color: red;
+          border-radius: 10px/10px;
+        }
+        #addd,
+        #timkiem1,
+        #hienthi,
+        #reset1,
+        #delete1 {
+          background-color: rgb(246, 161, 201);
+          border-radius: 7px/6px;
+        }
+        #prd {
+          background-color: #00ffff;
+          border-radius: 10px/10px;
+        }
+        #csmota,
+        #cst,
+        #csmt {
+          background-color: rgb(247, 110, 245);
+          border-radius: 7px/7px;
+        }
+        bang {
+          background-color: rgb(69, 232, 69);
+        }
+        span, .top1 a {
+          background-color: rgb(69, 232, 69);
+        }
+        #bangg {
+          text-align: center;
+          background-color: rgb(255, 99, 9);
+          border-radius: 10px/10px;
+        }
+        #edit,
+        #dele {
+          text-align: center;
+  
+          border-radius: 10px/10px;
+        }
+        table,
+        #td1 {
+          text-align: center;
+  
+          background-color: rgb(203, 246, 62);
+          border: solid 0px rgb(245, 23, 7);
+          border-radius: 10px/10px;
+        }
+        #texta {
+          background-color: #00ffff;
+          border-radius: 10px/10px;
+        }
+        #timk1 {
+          background-color: #b7f5f5;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="topnav">
+      <span class="top1">  
+        <a class="active" onclick="ht_sp()">Trang Chủ</a>
+      </span>
+      
+        <a onclick="add01()" >Quản Lý Sản phẩm</a>
+        <div class="topnav-right" style="padding-left:16px">
+          <a href="./dangnhap.html" >Đăng Nhập</a>
+        </div>
+    </div>
+     
+      </div>
+      <form>
+        <div>
+          <textarea placeholder="Nhập mô tả sản phẩm" id="motasp" cols="200" rows="10"></textarea>
+        </div>
+        <table id="timk1">
+          <tr>
+            <td width="400x">
+              <input type="search" placeholder="Kiểm tra sản phẩm" id="timkiem" />
+              <input
+                id="timkiem1"
+                type="button"
+                value="Tìm kiếm"
+                onclick="timkiem_sp();"
+              />
+            </td >
+            <td width="830x">
+              <input type="text" placeholder="Nhập sản phẩm mới" id="newProduct" />
+              <input
+                id="addd"
+                type="button"
+                value="Thêm Sản Phẩm"
+                onclick="them_sp();"
+              />
+            </td>
+            <td width="100x">
+              <input
+              id="reset1"
+              type="reset"
+              value="Làm Mới"
+            />
+            </td>
+            <td>
+            </td>
+            <td width="100x">
+              <input
+              id="delete1"
+              type="button"
+              value="Xóa Tất cả sản phẩm"
+              onclick="xoaall();"
+            />
+            </td>
+          </tr>
+        </table>
+        <br>
+        <table id="bangg" style="width: 1500px">
+          <tr style="text-align: center">
+            <td width="150px">
+              <b id="soluong"></b>
+            </td>
+            <td style="text-align: center" width="250px"><b>Tên sản phẩm</b></td>
+            <td style="text-align: center" width="630px">
+              <b>Mô tả sản phẩm</b>
+            </td>
+            <td style="text-align: center" width="150px">
+              <b>Chỉnh sửa sản phẩm</b>
+            </td>
+            <td style="text-align: center" width="100px"><b>Xóa sản phẩm</b></td>
+          </tr>
+        </table>
+        <br />
+        <hr />
+      </form>
+      <span id="bang1"></span>
+      <script>
+        var quanly = function (){
+       this.product = [];
+       this.motasp = [];
+       this.index;
+       this.add0 =  document.getElementById("addd");
+      add0.disabled = true;
+      this.chinhsua0 =  document.getElementById("delete1");
+      chinhsua0.disabled = true;
+      this.timkiem0 =  document.getElementById("timkiem1");
+      timkiem0.disabled = true;
+      this.add01 = function(){
+        div.style.display = 'block';
+        add0.disabled = false;
+        chinhsua0.disabled = false;
+        timkiem0.disabled = false;
+       this.ht_sp = function() {
+          return location.reload();
+        }
+        var k;
+        this.timkiem_sp = function() {
+          this.timkk = this.product.includes(document.getElementById("timkiem").value);
+          if (this.timkk) {
+            
+            for ( k = 0; k < this.product.length; k++) {
+            
+              if (document.getElementById("timkiem").value ==  this.product[k]) {
+                let a;
+                a =
+                  "<table border='' cellspacing='' cellpadding='' width='1500px'>";
+                a +=
+                  "<td style='text-align:center' id='prd' width='450px'>" +
+                    this.product[k] +
+                  "</td>";
+                a +=
+                  "<td style='text-align:center' id='texta' width='750px' height='50 px' >" +
+                    this.motasp[k] +
+                  " </td>";
+                a +=
+                  "<td style='text-align:center' id='td1' width='80px'> <input id='csmota' type='button' value='Chỉnh sửa' onclick='chinhsuamt(" +
+                  k +
+                  ")' ></td>";
+                  a +=
+                  "<td style='text-align:center' id='td1' width='80px'> <input  id='cst' type='button' value='Lưu Mới' onclick='update(" +
+                  k +
+                  ")' ></td>";
+                a +=
+                  "<td style='text-align:center' id='td1' width='100px'> <input  id='csmt' type='button' value='Xóa SP' onclick='dele(" +
+                  k +
+                  ")'>(" +
+                  (k + 1) +
+                  ")</td>";
+                a = a + "</tr>";
+  
+                a = a + "</table>";
+                document.getElementById("bang1").innerHTML = a;
+               
+              }
+            }
+          } else if (document.getElementById("timkiem").value !="") {
+            alert(
+              "Sản phẩm " +
+                "'" +
+                document.getElementById("timkiem").value +
+                "'" +
+                " không tồn tại trong danh sách"
+            );
+          }
+          else {
+            alert("Vui lòng nhập tên sản phẩm")
+          }
+        }
+       
+      }
+      this.them_sp = function() {
+      var add = document.getElementById("newProduct").value;
+       var mota = document.getElementById("motasp").value;
+          if (add != "") {
+            if (!this.product.includes(add)) {
+              this.product.push(add);
+              this.motasp.push(mota);
+              this.bang(product);
+              document.getElementById("newProduct").value = "";
+              document.getElementById("motasp").value = "";
+            } else {
+              alert(
+                "CẢNH BÁO: Sản Phẩm: " +
+                  "'" +
+                  add +
+                  "'" +
+                  " Đã Tồn Tại Vui Lòng Đặt Tên Khác"
+              );
+            }
+          } else {
+            alert("Vui lòng nhập tên sản phẩm");
+          }
+        }
+       var a ,i;
+       this.bang = function() {
+          a = "<table border='' cellspacing='' cellpadding='' width='1500px'>";
+          for (i = 0; i < this.product.length; i++) {
+            a +=
+              "<td style='text-align:center' id='prd'  width='450px'>" +
+                this.product[i] +
+              "</td>";
+            a +=
+              "<td style='text-align:center' id='texta' width='750px' height='50 px' >" +
+                this.motasp[i] +
+              " </td>";
+            a +=
+              "<td style='text-align:center' id='td1' width='80px'> <input id='csmota' type='button' value='Chỉnh sửa' onclick='chinhsuamt(" +
+              i +
+              ")' ></td>";
+              a +=
+                  "<td style='text-align:center' id='td1' width='80px'> <input  id='cst' type='button' value='Lưu Mới' onclick='update(" +
+                  i +
+                  ")' ></td>";
+            a +=
+              "<td style='text-align:center' id='td1' width='100px'> <input  id='csmt' type='button' value='Xóa SP' onclick='dele(" +
+              i +
+              ")'>(" +
+              (i + 1) +
+              ")</td>";
+            a = a + "</tr>";
+          }
+          a = a + "</table>";
+          document.getElementById("bang1").innerHTML = a;
+          localStorage.setItem("product", JSON.stringify(this.product));
+          localStorage.setItem("motasp", JSON.stringify(this.motasp));
+         return i
+        }
+        this.dele = function(index) {
+          this.xacnhan = confirm("Bạn có muốn xóa sản phẩm");
+          if (xacnhan) {
+            this.product.splice(index, 1);
+            this.motasp.splice(index, 1);
+            this.bang(this.product);
+          }
+        }
+        this.xoaall = function(index) {
+          var xacnhan1 = confirm("Bạn có muốn xóa tất cả sản phẩm");
+          if (xacnhan1) {
+            this.product.splice(index, this.product.length);
+            this.motasp.splice(index, this.motasp.length);
+            this.bang(product);
+          }
+        }
+        var newname;
+        this.chinhsuamt = function(index) {
+          div.style.display = 'block';
+        var mtk =  document.getElementById("motasp").value = this.motasp[index];
+          var newmota = mtk
+          if (newmota) {
+            motasp[index] = newmota;
+          } else {
+            motasp[index] = "";
+          }
+          var newname1 = document.getElementById("newProduct").value = this.product[index];
+         newname = newname1
+          if (newname) {
+            if (!product.includes(newname)) {
+              this.product[index] = newname;
+            } 
+          } else {
+            this.product[index] = "";
+          }
+        }
+       this.update = function(index) {
+          var a = document.getElementById("motasp").value;
+          var b = document.getElementById("newProduct").value;
+          if (a && b !=""){
+            this.product[index] = b;
+            this.motasp[index] = a;
+          document.getElementById("motasp").value = "";
+          document.getElementById("newProduct").value ="";
+          
+          document.getElementById("motasp").value = "";
+          } else if (a == ""){
+            alert("Mô Tả Sản Phẩm Đang Trống");
+          } else if (b == ""){
+            alert("Tên Sản Phẩm Đang Trống");
+          }
+          this.bang(product);
+        }
+      
+    // onchange = function() {
+      // setInterval(function() {
+      // var sl = document.getElementById("soluong")
+      // if (bang(product) != null) {
+      //   if(bang(product) > 0){
+      //     sl.innerHTML = 'Có '+ bang(product) + " Sản Phẩm"
+      // }else {
+      //   sl.innerHTML = 'Không có Sản Phẩm'
+        
+      // } 
+
+      //   }
+      //   bang(product);
+      // },1000)
+      // }
+       this.div = document.getElementById("motasp");
+     
+        this.div.style.display = 'none';
+        this.Luu = function (){
+        this.motasp = localStorage.getItem("motasp");
+        if (!this.motasp) {
+          this.motasp = [];
+        } else {
+          this.motasp = JSON.parse( this.motasp);
+        }
+        this.product = localStorage.getItem("product");
+        if (!this.product) {
+          this.product = [];
+        } else {
+          this.product = JSON.parse(this.product);
+        }
+        this.bang(this.product);}
+      }
+      var ql1 = new quanly();
+      ql1.bang(ql1.product)
+      function ht_sp(){
+      ql1.ht_sp();
+      ql1.bang();
+      ql1.add01();
+      ql1.Luu();
+
+      };
+      function timkiem_sp(){
+        ql1.timkiem_sp();
+        ql1.bang();
+        ql1.Luu();
+      };
+      function them_sp(){
+        ql1.them_sp();
+        
+        ql1.bang();
+        ql1.Luu();
+      };
+      function dele(){
+        ql1.dele();
+        ql1.Luu();
+      };
+      function update(){
+        ql1.update();
+        ql1.Luu();
+      };
+      function chinhsuamt() {
+        ql1.chinhsuamt();
+        ql1.Luu();
+      };
+      function xoaall(){
+        ql1.xoaall();
+        ql1.bang();
+        ql1.Luu();
+      };
+    
+      </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ứng dụng quản lý sản phẩm sử dụng hàm</title>
+    <style>
+      tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="javascript:void(0);" method="POST" onsubmit="listPhone.add()">
+      <input type="text" id="add" placeholder="Thêm sản phẩm" />
+      <input type="textarea" id="mota" placeholder="Nhậptả sản phẩm" />
+     
+      <input type="submit" value="Thêm" />
+      <input type="search" id="timkiem" placeholder="Tìm kiếm"/>
+      <input type="button" value="tìm kiếm" onclick="timkiem()">
+    </form>
+
+    <br /><br />
+
+    <table
+      border="1px"
+      cellpadding="0"
+      cellspacing="0"
+      width="1500"
+      style="text-align: center"
+    >
+      <tr>
+        <th width="400px">Sản phẩm</th>
+        <th width="1000px">Mô tả sản phẩm</th>
+        <th width="100px" colspan="2" style="padding: 10px 0">
+          <p id="soluong"></p>
+        </th>
+      </tr>
+      <tbody id="product"></tbody>
+    </table>
+
+    <br /><br />
+
+    <form action="javascript:void(0);" method="POST" id="saveEdit">
+      <input type="text" id="edit" />
+      <input type="submit" value="Edit" />
+    </form>
+
+    <script>
+      let Phone = function () {
+        this.listPhone = [];
+        this.motasp = [];
+        this.product = document.getElementById("product");
+
+        this.count = function (data) {
+          let soluong = document.getElementById("soluong");
+          if (data != null) {
+            if (data > 0) {
+              soluong.innerHTML = "Có " + data + " SP";
+            } else {
+              soluong.innerHTML = "K có SP";
+            }
+          }
+        };
+        function timkiem(){
+        this.timkiemsp = function () {
+          let tim = this.listPhone.includes(
+            document.getElementById("timkiem").value
+          );
+          if (tim) {
+            for (let k = 0; k < this.listPhone.length; k++) {
+              if (document.getElementById("timkiem").value == this.listPhone[k]){
+              let data = "";
+      
+                data += "<tr>";
+                data +=
+                  "<td width='400px' style='padding: 10px 0; font-size: 10px;font-weight: bold ;text-transform:uppercase;color: red'>" +
+                  this.listPhone[k] +
+                  "</td>";
+                data +=
+                  "<td width='1000px' style='padding: 10px 0; font-size: 10px;font-weight: bold ;text-transform:uppercase;color: red'>" +
+                  this.motasp[k] +
+                  "</td>";
+                data +=
+                  "<td width='50px'><button onclick='listPhone.edit(" +
+                  k +
+                  ")'>Sửa</button></td>";
+                data +=
+                  "<td width='50px'><button onclick='listPhone.delete(" +
+                  k +
+                  ")'>Xóa</button></td>";
+                data += "</tr>";
+              }
+              this.count(this.listPhone.length);
+              return (this.product.innerHTML = data);
+            }
+          
+        };
+      }}
+        this.display = function () {
+          let data = "";
+          if (this.listPhone.length > 0) {
+            for (let i = 0; i < this.listPhone.length; i++) {
+              data += "<tr>";
+              data +=
+                "<td width='400px' style='padding: 10px 0; font-size: 10px;font-weight: bold ;text-transform:uppercase;color: red'>" +
+                this.listPhone[i] +
+                "</td>";
+              data +=
+                "<td width='1000px' style='padding: 10px 0; font-size: 10px;font-weight: bold ;text-transform:uppercase;color: red'>" +
+                this.motasp[i] +
+                "</td>";
+              data +=
+                "<td width='50px'><button onclick='listPhone.edit(" +
+                i +
+                ")'>Sửa</button></td>";
+              data +=
+                "<td width='50px'><button onclick='listPhone.delete(" +
+                i +
+                ")'>Xóa</button></td>";
+              data += "</tr>";
+            }
+          }
+          this.count(this.listPhone.length);
+          return (this.product.innerHTML = data);
+        };
+
+        this.add = function () {
+          let addProduct = document.getElementById("add").value;
+          let mota = document.getElementById("mota").value;
+          if (addProduct != "") {
+            this.listPhone.push(addProduct.trim());
+            this.motasp.push(mota.trim());
+            this.display();
+            document.getElementById("add").value = "";
+            document.getElementById("mota").value = "";
+          }
+        };
+
+        this.edit = function (id) {
+          let editProduct = document.getElementById("edit");
+          let mota = document.getElementById("mota");
+          editProduct.value = this.listPhone[id];
+          mota.value = this.motasp[id];
+          self = this;
+          document.getElementById("saveEdit").onsubmit = function () {
+            let produc = editProduct.value;
+            let mota1 = mota.value;
+            self.listPhone.splice(id, 1, produc);
+            self.motasp.splice(id, 1, mota1);
+            self.display();
+            editProduct.value = "";
+            mota.value = "";
+          };
+        };
+
+        this.delete = function (id) {
+          this.listPhone.splice(id, 1);
+          this.display();
+        };
+      };
+
+      let listPhone = new Phone();
+      listPhone.display();
+    </script>
+  </body>
+</html>

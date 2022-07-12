@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .topnav a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+    .topnav-right {
+      float: right;
+    }
+      html {
+        /* background: url(https://msmobile.com.vn/upload_images/images/hinh-nen-dep-cho-may-tinh-full-hd-9.jpg); */
+        background-size: cover;
+      }
+      h2 {
+        text-align: center;
+        color: rgb(197, 255, 51);
+      }
+      #newProduct,
+      #motasp {
+        margin-left: 630px;
+        background-color: black;
+        color: red;
+      }
+      #addd {
+        background-color: rgb(69, 232, 69);
+      }
+      bang {
+        background-color: rgb(69, 232, 69);
+      }
+      span {
+        background-color: rgb(69, 232, 69);
+      }
+      #bangg {
+        margin-left: 100px;
+        background-color: rgb(245, 89, 144);
+        /* border: solid 4px rgb(245, 23, 7); */
+      }
+      #edit,
+      #dele {
+        margin-left: 180px;
+      }
+      table {
+        margin-left: 100px;
+        background-color: rgb(69, 232, 69);
+        border: solid 1px rgb(245, 23, 7);
+      }
+      #texta {
+        background-color: rgb(228, 26, 141);
+      }
+    </style>
+    <title>Document</title>
+    <!-- <style>
+        #modalContainer {
+    background-color:rgba(0, 0, 0, 0.3);
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:10000;
+    background-image:url(tp.png); /* required by MSIE to prevent actions on lower z-index elements */
+}
+ 
+#alertBox {
+    position:relative;
+    width:300px;
+    min-height:100px;
+    margin-top:50px;
+    border:1px solid #666;
+    background-color:#fff;
+    background-repeat:no-repeat;
+    background-position:20px 30px;
+}
+ 
+#modalContainer > #alertBox {
+    position:fixed;
+}
+ 
+#alertBox h1 {
+    margin:0;
+    font:bold 0.9em verdana,arial;
+    background-color:#3073BB;
+    color:#FFF;
+    border-bottom:1px solid #000;
+    padding:2px 0 2px 5px;
+}
+ 
+#alertBox p {
+    font:0.7em verdana,arial;
+    height:50px;
+    padding-left:5px;
+    margin-left:55px;
+}
+ 
+#alertBox #closeBtn {
+    display:block;
+    position:relative;
+    margin:5px auto;
+    padding:7px;
+    border:0 none;
+    width:70px;
+    font:0.7em verdana,arial;
+    text-transform:uppercase;
+    text-align:center;
+    color:#FFF;
+    background-color:#357EBD;
+    border-radius: 3px;
+    text-decoration:none;
+}
+ 
+/* unrelated styles */
+ 
+#mContainer {
+    position:relative;
+    width:600px;
+    margin:auto;
+    padding:5px;
+    border-top:2px solid #000;
+    border-bottom:2px solid #000;
+    font:0.7em verdana,arial;
+}
+ 
+h1,h2 {
+    margin:0;
+    padding:4px;
+    font:bold 1.5em verdana;
+    border-bottom:1px solid #000;
+}
+ 
+code {
+    font-size:1.2em;
+    color:#069;
+}
+ 
+#credits {
+    position:relative;
+    margin:25px auto 0px auto;
+    width:350px; 
+    font:0.7em verdana;
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+    height:90px;
+    padding-top:4px;
+}
+ 
+#credits img {
+    float:left;
+    margin:5px 10px 5px 0px;
+    border:1px solid #000000;
+    width:80px;
+    height:79px;
+}
+ 
+.important {
+    background-color:#F5FCC8;
+    padding:2px;
+}
+ 
+code span {
+    color:green;
+}
+    </style> -->
+  </head>
+  <body>
+    <!-- <h1>Bảng cửu chương</h1>
+    <script>
+        let sout, i, j;
+        sout = "<table border='1' width='300' cellspacing='0' cellpadding='15'>";
+        debugger;
+        for (i = 1; i <= 10; i++) {
+            sout = sout + "<tr>";
+            for (j = 1; j <= 10; j++) {
+                sout = sout + "<td>" + j + "*" + i + "=" + i * j + "</td>";
+            }
+            sout = sout + "</tr>";
+            // j = 1;
+        }
+        sout = sout + "</table>";
+        document.write(sout);
+    </script> -->
+    <!-- <script>
+      var thoitiet = prompt(" thời tiết có đẹp hay không");
+
+      if (thoitiet == "dep") {
+        var tien = prompt(" có tiền hay không");
+        if (tien == "co") {
+          document.write("đi nhậu");
+        } else {
+          document.write("Đi chơi");
+        }
+      } else {
+        document.write("ở nhà");
+      }
+    </script> -->
+    <!-- <script>
+      var nhapso = Number(prompt("Nhập số"));
+      if (nhapso % 2 == 0) {
+        alert(nhapso + " là số chẵn");
+      } else alert(nhapso + " là số lẽ");
+    </script> -->
+    <!-- <script>
+        var a = prompt("Nhập a");
+        var b = prompt("Nhập b");
+        var c = prompt("Nhập c");
+        var max = a
+        if (b > max) {
+            max = b
+        } if ( c > max) {
+            max = c
+        }
+     </script> -->
+    <!-- <script>
+      var a = prompt("Nhập a");
+      var b = prompt("Nhập b");
+      if (a > b) {
+        alert("a = "+ a  + " lớn hơn " +"b = "+ b);
+      } else if (a < b) {
+        alert("b = "+b + " lớn hơn " + "a = "+a);
+      } else {
+        alert("a = "+a + " bằng " +"b = "+ b);
+      }
+    </script> -->
+    <!-- <script>
+      var nam = parseInt(prompt(" Nhập năm"));
+      if (nam % 4 == 0) {
+        if (nam % 100 == 0) {
+          if (nam % 400 == 0) {4
+            alert(nam + " là năm nhuận");
+          } else {
+            alert(nam + " không phải năm nhuận");
+          }
+        } else {
+          alert(nam + " là năm năm nhuận");
+        }
+      } else {
+        alert(nam + " không phải năm nhuận");
+      }
+    </script> -->
+    <!-- <script>
+      var a = parseInt(prompt(" nhập a"));
+      var b = parseInt(prompt(" nhập b"));
+      if (a == 0) {
+        if (b == 0) {
+          alert(" Phương trình vô số nghiệm");
+        } else {
+          alert("phương trình  vô nghiệm");
+        }
+      } else {
+        alert("phương trình có nghiệm x= " + -b / a);
+      }
+    </script> -->
+    <!-- <script>
+      var quocgia = prompt("Nhập Quốc gia");
+      if (quocgia == "Việt Nam") {
+        var quequan = prompt("Nhập Quê quán");
+        if (quequan == "Quảng Trị") {
+          var quanhuyen = prompt("Nhập Quận or Huyện");
+          alert(
+            " Bạn ở: Quốc gia: " +
+              quocgia +
+              ", Quê quán: " +
+              quequan +
+              ", Quận/Huyện: " +
+              quanhuyen
+          );
+        } else {
+          alert("Bạn không phải là người Quảng Trị");
+        }
+      } else {
+        alert(" Bạn là người nước ngoài thuộc quốc gia: " + quocgia);
+      }
+    </script> -->
+    <!--    
+        <script type="text/javascript">
+            function show_alert() {
+                alert("Hello! I am an alert box!");
+            }
+            var ALERT_TITLE = "Oops!";
+var ALERT_BUTTON_TEXT = "Ok";
+ 
+if(document.getElementById) {
+    window.alert = function(txt) {
+        createCustomAlert(txt);
+    }
+}
+ 
+function createCustomAlert(txt) {
+    d = document;
+ 
+    if(d.getElementById("modalContainer")) return;
+ 
+    mObj = d.getElementsByTagName("body")[0].appendChild(d.createElement("div"));
+    mObj.id = "modalContainer";
+    mObj.style.height = d.documentElement.scrollHeight + "px";
+ 
+    alertObj = mObj.appendChild(d.createElement("div"));
+    alertObj.id = "alertBox";
+    if(d.all && !window.opera) alertObj.style.top = document.documentElement.scrollTop + "px";
+    alertObj.style.left = (d.documentElement.scrollWidth - alertObj.offsetWidth)/2 + "px";
+    alertObj.style.visiblity="visible";
+ 
+    h1 = alertObj.appendChild(d.createElement("h1"));
+    h1.appendChild(d.createTextNode(ALERT_TITLE));
+ 
+    msg = alertObj.appendChild(d.createElement("p"));
+    //msg.appendChild(d.createTextNode(txt));
+    msg.innerHTML = txt;
+ 
+    btn = alertObj.appendChild(d.createElement("a"));
+    btn.id = "closeBtn";
+    btn.appendChild(d.createTextNode(ALERT_BUTTON_TEXT));
+    btn.href = "#";
+    btn.focus();
+    btn.onclick = function() { removeCustomAlert();return false; }
+ 
+    alertObj.style.display = "block";
+ 
+}
+ 
+function removeCustomAlert() {
+    document.getElementsByTagName("body")[0].removeChild(document.getElementById("modalContainer"));
+}
+        </script>
+    </head>
+    <body>
+        <input type="button" onclick="show_alert()" value="Show alert box" />
+  
+  </body>
+</html>
+
+    <!-- <form>
+      <h2><b>Thêm sản phẩm</b></h2>
+      <input type="text" placeholder="New Product" id="newProduct" />
+      <input type="button" value="Add" onclick="them_sp();" /><br />
+      <h2><b>Hiển thị sản phẩm</b></h2>
+      <table style="width: 750px">
+        <tr>
+          <td><b>Tên sản phẩm</b></td>
+          <td><b>Số sản phẩm</b></td>
+        </tr>
+      </table>
+      <div id="bang1"></div>
+    </form>
+    <script>
+      var product = [];
+      function them_sp() {
+        var add = document.getElementById("newProduct").value;
+        product.push(add);
+        bang(product);
+      }
+      function bang(product) {
+        let a, i;
+        a =
+          "<table border='1px' cellspacing='1' cellpadding='4' width='800px'>";
+        for (i = 0; i < product.length; i++) {
+          a = a + "<tr>";
+          a += "<td>" + product[i] + "</td>";
+          a +=
+            "<td> <input type='button' value='Edit' onclick='edit(" +
+            i +
+            ")' ></td>";
+          a +=
+            "<td> <input type='button' value='delete' onclick='dele(" +
+            i +
+            ")'></td>";
+          a = a + "</tr>";
+        }
+        // a = a + "</table>";
+        document.getElementById("bang1").innerHTML = a;
+      }
+      function dele(index) {
+        product.splice(index, 1);
+        bang(product);
+      }
+      function edit(index) {
+        console.log(index);
+        var newname = prompt("nhập tên sp mới");
+        product[index] = newname;
+        bang(product);
+      }
+    </script> -->
+    
+    </head>
+    <body>
+    
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <div class="topnav-right">
+        <a href="#search">Search</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+    
+    <div style="padding-left:16px">
+      <h2>Top Navigation with Right Aligned Links</h2>
+      <p>Some content..</p>
+    </div>
+    
+    <form>
+      <h2><b>Thêm sản phẩm mới</b></h2>
+      <input type="text" placeholder="Nhập sản phẩm mới" id="newProduct" />
+      <input id="addd" type="button" value="Thêm" onclick="them_sp();" />
+      <!-- <input id="addd" type="button" value="Thêm Mô Tả" onclick="themmota();" /> -->
+
+      <input
+        style="background-color: rgb(69, 232, 69)"
+        type="reset"
+        value="Làm mới"
+      />
+      <input
+        style="background-color: rgb(69, 232, 69)"
+        type="button"
+        value="Xóa Tất cả sản phẩm"
+        onclick="xoaall();"
+      />
+      <br />
+      <br />
+      <input type="textarea" placeholder="Nhập mô tả sản phẩm" id="motasp" />
+
+      <h2><b>Danh sánh tất cả sản phẩm</b></h2>
+      <table id="bangg" style="width: 1500px">
+        <tr style="text-align: right">
+          <td style="text-align: center" width="500px"><b>Tên sản phẩm</b></td>
+          <td style="text-align: center" width="700px">
+            <b>Mô tả sản phẩm</b>
+          </td>
+          <td style="text-align: center" width="150px">
+            <b>Chỉnh sửa sản phẩm</b>
+          </td>
+          <td style="text-align: center" width="150px"><b>Xóa sản phẩm</b></td>
+        </tr>
+      </table>
+      <br />
+      <hr />
+    </form>
+    <span id="bang1"></span>
+    <script>
+      var product = [];
+      var motasp = [];
+
+      function chinhsuamt(index) {
+        var newmota = prompt("Nhập lại mô tả sản phẩm");
+        if (newmota) {
+          motasp[index] = newmota;
+          bang(product);
+        } else {
+          motasp[index] = "";
+        }
+      }
+
+      function edit(index) {
+        var newname = prompt("Nhập lại tên sản phẩm");
+        if (newname) {
+          product[index] = newname;
+          bang(product);
+        } else {
+          product[index] = "";
+        }
+      }
+      function them_sp() {
+        var add = document.getElementById("newProduct").value;
+        var mota = document.getElementById("motasp").value;
+        if (add != "") {
+          if (!product.includes(add)) {
+            product.push(add);
+            motasp.push(mota);
+            bang(product);
+            document.getElementById("newProduct").value = "";
+            document.getElementById("motasp").value = "";
+          } else {
+            alert("CẢNH BÁO: Sản Phẩm: " + add + " Đã Tồn Tại");
+          }
+        } else {
+          alert(" CẢNG BÁO: Tên Sản Phẩm Không Được Để Trống ");
+        }
+      }
+      // a += "</td style='text-align:center' width='100px'>
+      // <input id='csmota' type='button' value='Chỉnh sửa mô tả' onclick='chinhsuamt("+ i +"); />
+
+      //        </td>";
+      function bang(product) {
+        let a, i;
+        a = "<table border='' cellspacing='' cellpadding='' width='1500px'>";
+        for (i = 0; i < product.length; i++) {
+          a = a + "<td>";
+          a +=
+            "<td style='text-align:center'  width='500px'>" +
+            product[i] +
+            "</td>";
+          a +=
+            "<td style='text-align:center' id='texta' width='700px' height='50 px' >" +
+            motasp[i] +
+            " </td>";
+          a +=
+            "<td style='text-align:center' width='100px'> <input id='csmota' type='button' value='Chỉnh Sửa Mô tả' onclick='chinhsuamt(" +
+            i +
+            ")' ></td>";
+          a +=
+            "<td style='text-align:center' width='150px'> <input type='button' value='Chỉnh Sửa' onclick='edit(" +
+            i +
+            ")' ></td>";
+          a +=
+            "<td style='text-align:center' width='150px'> <input type='button' value='Xóa' onclick='dele(" +
+            i +
+            ")'></td>";
+          a = a + "</tr>";
+        }
+        // a = a + "</table>";
+        document.getElementById("bang1").innerHTML = a;
+      }
+
+      function dele(index) {
+        var xacnhan = confirm("Bạn có muốn xóa sản phẩm");
+        if (xacnhan) {
+          product.splice(index, 1);
+          motasp.splice(index, 1);
+          bang(product);
+        }
+      }
+      function xoaall(index) {
+        var xacnhan1 = confirm("Bạn có muốn xóa tất cả sản phẩm");
+        if (xacnhan1) {
+          product.splice(index, product.length);
+          motasp.splice(index, motasp.length);
+          bang(product);
+        }
+      }
+    </script>
+  </body>
+</html>
