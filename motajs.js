@@ -17,7 +17,7 @@
               if (document.getElementById("timkiem").value ==  product[k]) {
                 let a;
                 a =
-                  "<table border='' cellspacing='' cellpadding='' width='1500px'>";
+                  "<table cellspacing='3px' cellpadding='' width='1500px'>";
                 a +=
                   "<td style='text-align:center' id='prd' width='300px'>" +
                   product[k] +
@@ -31,24 +31,20 @@
                   motasp[k] +
                   " </td>";
                   a += '<td><img width="200px" height="200px" src=" '+anhh[k]+'"></td>'
-                a +=
-                  "<td style='text-align:center' id='td1' width='60px'> <input id='csmota' type='button' value='Chỉnh sửa' onclick='chinhsuamt(" +
-                  k +
-                  ")' ></td>";
                   a +=
-                  "<td style='text-align:center' id='td1' width='60px'> <input  id='cst' type='button' value='Lưu' onclick='update(" +
-                  k +
-                  ")' ></td>";
-                a +=
-                  "<td style='text-align:center' id='td1' width='70px'> <input  id='csmt' type='button' value='Xóa' onclick='dele(" +
-                  k +
+                  "<td style='text-align: left' id='td1' width='30px'> <input id='csmota' type='button' value='Chỉnh sửa' onclick='chinhsuamt(" +
+                  i +
+                  ")'><br><br><br><input  id='cst' type='button' value='Lưu' onclick='update(" +
+                  i +
+                  ")' ><br><br><br><input  id='csmt' type='button' value='Xóa' onclick='dele(" +
+                  i +
                   ")'>(" +
                   (k + 1) +
-                  ")</td>";
-                a = a + "</tr>";
+                  ")</td>"
   
                 a = a + "</table>";
                 document.getElementById("bang1").innerHTML = a;
+                hienthisl(k+1)
                
               }
             }
@@ -59,10 +55,13 @@
                 document.getElementById("timkiem").value +
                 "'" +
                 " không tồn tại trong danh sách"
+                
             );
+            bang(product);
           }
           else {
             alert("Vui lòng nhập tên sản phẩm")
+            bang(product);
           }
         }
       var add0 =  document.getElementById("addd")
@@ -109,7 +108,7 @@
         var a, i
         // var anh = document.getElementById("img").value
         function bang(product) {
-          a = "<table cellspacing='2px' cellpadding='' width='1500px'>";
+          a = "<table cellspacing='3px' cellpadding='' width='1500px'>";
           for (i = 0; i < product.length; i++) {
             a +=
               "<td style='text-align:center' id='prd'  width='300px'>" +
