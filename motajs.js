@@ -80,7 +80,7 @@
         function them_sp() {
           var add = document.getElementById("newProduct").value;
           var mota = document.getElementById("motasp").value;
-          let img = document.getElementById('img').value;
+          let img =  document.getElementById('img').value;
           let gia1 = document.getElementById("Gia").value;
           if (add != "") {
             if (!product.includes(add)) {
@@ -211,7 +211,7 @@
           var newanh1 = document.getElementById("img").value = anhh[index];
           var newanh = newanh1
           if (newanh) {
-           anhh[index] = newanh;
+           anhh[index] =newanh;
           } else {
             anhh[index] = "";
           }
