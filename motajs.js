@@ -17,7 +17,7 @@
               if (document.getElementById("timkiem").value ==  product[k]) {
                 let a;
                 a =
-                  "<table cellspacing='3px' cellpadding='' width='1500px'>";
+                  "<table cellspacing='4px' cellpadding='' width='1500px'>";
                 a +=
                   "<td style='text-align:center' id='prd' width='300px'>" +
                   product[k] +
@@ -76,6 +76,9 @@
         chinhsua0.disabled = false
         timkiem0.disabled = false
       }
+      function offmota(){
+        div.style.display = 'none';
+      }
         function them_sp() {
           var add = document.getElementById("newProduct").value;
           var mota = document.getElementById("motasp").value;
@@ -108,7 +111,7 @@
         var a, i
         // var anh = document.getElementById("img").value
         function bang(product) {
-          a = "<table cellspacing='3px' cellpadding='' width='1500px'>";
+          a = "<table cellspacing='4px' cellpadding='' width='1500px'>";
           for (i = 0; i < product.length; i++) {
             a +=
               "<td style='text-align:center' id='prd'  width='300px'>" +
